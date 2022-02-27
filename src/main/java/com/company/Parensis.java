@@ -40,4 +40,12 @@ public class Parensis {
     public void testRun() {
         permutate(3);
     }
+
+    @Test
+    public void test() {
+        java.lang.String s = "abc";
+        StringBuilder sb = new StringBuilder();
+        sb.append(s);
+
+    }
 }

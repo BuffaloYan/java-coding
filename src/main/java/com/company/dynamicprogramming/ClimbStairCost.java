@@ -5,31 +5,23 @@ import org.junit.Test;
 
 public class ClimbStairCost {
     public int minCostClimbingStairs(int[] cost) {
-        int f_2=0, f_1=0;
+        int f2=0, f1=0;
 
-        if (cost.length>=1) {
-            f_2 = cost[cost.length-1];
-            if (cost.length==1)
-                return f_2;
+        if (cost.length<=2) {
+            return 0;
         }
 
-        if (cost.length>=2) {
-            f_1 = Math.min(cost[cost.length-1], cost[cost.length-2]);
-
-            if (cost.length==2)
-                return f_1;
+        int fn = 0;
+        // f(n) = min(f(n-1) + cost[n-1], f(n-2) + cost[n-2])
+        for (int i=2; i<=cost.length; i++) {
+            fn = Math.min(f1+cost[i-2], f2+cost[i-1]);
+            f1 = f2;
+            f2 = fn;
         }
 
-        int f_0 = 0;
-        for (int i=cost.length-3; i>=0; i--) {
-            f_0 = cost[i] + Math.min(f_1, f_2);
-            f_2 = f_1;
-            f_1 = f_0;
-        }
+        //fn = Math.min(f1, f2);
 
-        f_0 = Math.min(f_1, f_2);
-
-        return f_0;
+        return fn;
     }
 
 
