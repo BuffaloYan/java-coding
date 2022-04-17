@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class BuildingShortestDistance {
@@ -112,5 +113,8 @@ public class BuildingShortestDistance {
         int dist = shortestDistance.shortestDistance(grid);
 
         Assert.assertEquals(88, dist);
+
+        String version = "1.2.3";
+
     }
 }

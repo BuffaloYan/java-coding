@@ -1,4 +1,4 @@
-package com.company.google;
+package com.company.interview;
 
 import org.junit.Test;
 

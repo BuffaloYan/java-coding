@@ -1,11 +1,19 @@
-package com.company.google;
+package com.company.interview;
 
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
+/**
+ * google phone interview question
+ *
+ * 2 players tile game
+ * starts with 1 tile per stack, tile could have different colors
+ * stack with same height (number of tiles) and same color on top can be merged
+ *
+ * the player can not make further move lose
+ */
 public class TileStackGame {
     public static class Stack implements Cloneable {
         int height;
@@ -66,7 +74,7 @@ public class TileStackGame {
      * [ [height, color], [height, color], ...]
      * @return
      */
-    public int winner(int[][] stacks) {
+    public int findWinner(int[][] stacks) {
         List<Stack> list = new ArrayList<>();
         for(int i=0; i<stacks.length; i++) {
             Stack stack = new Stack();
@@ -77,7 +85,6 @@ public class TileStackGame {
         }
 
         Node root = new Node(list, null, 0);
-        root.toString();
 
         buildTree(root, new HashMap<>());
 
@@ -129,40 +136,6 @@ public class TileStackGame {
         return false;
     }
 
-    private void trimLosingPath(Node root, List<Node> losingStates) {
-        if (losingStates.size()==0) {
-            return;
-        }
-
-        losingStates = losingStates.stream().map(node -> {
-            while(node.parent != root) {
-                node = node.parent;
-            }
-
-            return node;
-        }).collect(Collectors.toList());
-
-        root.children.removeAll(losingStates);
-    }
-
-    /**
-     * find all leaf node ends at even level, at which, player 2 win (no next move for player 1)
-     * @param root
-     * @param losingStates
-     */
-    public void findLoseState(Node root, List<Node> losingStates) {
-        if (root.children.size() == 0) {
-            if (root.depth%2 == 0) {
-                losingStates.add(root);
-            }
-            return;
-        }
-
-        for(Node child: root.children) {
-            findLoseState(child, losingStates);
-        }
-    }
-
     public void buildTree(Node root, Map<String, Node> maps) {
         List<Stack> stacks = root.stacks;
 
@@ -191,6 +164,7 @@ public class TileStackGame {
                             markPath(root, 0);
                         }
 
+                        // node could have multiple parent
                         root.children.add(n);
                         continue;
                     }
@@ -250,30 +224,31 @@ public class TileStackGame {
         int[][] stacks = {{1,0},{1,0},{1,1},{1,1}};
 
         TileStackGame tileStackGame = new TileStackGame();
-        int winner = tileStackGame.winner(stacks);
+        int winner = tileStackGame.findWinner(stacks);
 
         Assert.assertEquals(0, winner);
     }
 
     @Test
     public void testRun2() {
-        // 2 color, 4 tiles
+        // 3 color, 12 tiles
         int[][] stacks = {
                 {1,0},{1,0},{1,0},{1,0},
-                {1,1},{1,1},{1,1},{1,1},
-                {1,2},{1,2},{1,2},{1,2},
-                {1,3},{1,3},{1,3},{1,3}
+                {1,1},{1,1},{1,1},
+                //{1,1},
+                {1,2},{1,2}
+                //,{1,2},{1,2}
         };
 
         TileStackGame tileStackGame = new TileStackGame();
-        int winner = tileStackGame.winner(stacks);
+        int winner = tileStackGame.findWinner(stacks);
 
         Assert.assertEquals(0, winner);
     }
 
     @Test
     public void testRun3() {
-        // 2 color, 4 tiles
+        // 4 color, 12 tiles
         int[][] stacks = {
                 {1,0},{1,0},{1,0},
                 {1,1},{1,1},{1,1},
@@ -282,7 +257,7 @@ public class TileStackGame {
         };
 
         TileStackGame tileStackGame = new TileStackGame();
-        int winner = tileStackGame.winner(stacks);
+        int winner = tileStackGame.findWinner(stacks);
 
         Assert.assertEquals(0, winner);
     }
