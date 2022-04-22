@@ -1,5 +1,7 @@
 package com.company.sort;
 
+import java.util.Arrays;
+
 public class MergeSort {
     public static void main(String[] args) {
         int[] data = new int[100];
@@ -44,32 +46,25 @@ public class MergeSort {
             _sort(data, middle+1, right);
 
             // merging
-            int leftIndex = left;
+            int leftIndex = 0;
             int rightIndex = middle+1;
-            int[] tempData = new int[right-left+1];
-            int tempIndex = 0;
-            while (leftIndex <= middle && rightIndex <= right) {
-                if (data[leftIndex] < data[rightIndex]) {
-                    tempData[tempIndex++] = data[leftIndex++];
+            int[] tempData = Arrays.copyOfRange(data, left, middle+1);
+            int index = left;
+            while (leftIndex < tempData.length && rightIndex <= right) {
+                if (tempData[leftIndex] < data[rightIndex]) {
+                    data[index++] = tempData[leftIndex++];
                 } else {
-                    tempData[tempIndex++] = data[rightIndex++];
+                    data[index++] = data[rightIndex++];
                 }
             }
 
             // copy rest of left if any
-            while (leftIndex <= middle) {
-                tempData[tempIndex++] = data[leftIndex++];
+            while (leftIndex < tempData.length) {
+                data[index++] = tempData[leftIndex++];
             }
 
-            // copy rest of right if any
-            while (rightIndex <= right) {
-                tempData[tempIndex++] = data[rightIndex++];
-            }
+            // right side will always be in right place, no need to copy
 
-            // copy data back into array
-            for(int i=left; i<=right; i++) {
-                data[i] = tempData[i-left];
-            }
         }
     }
 
