@@ -1,7 +1,7 @@
 package com.company.graph;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
 
@@ -98,7 +98,7 @@ public class ShortestPath {
         int[][] times = new int[][] {{1,2,1}};
         ShortestPath shortestPath = new ShortestPath();
         int result = shortestPath.networkDelayTime(times, 2, 2);
-        Assert.assertEquals(-1, result);
+        assertEquals(-1, result);
 
         List<Integer> l = new ArrayList<>();
         Integer[] boxed = new Integer[l.size()];

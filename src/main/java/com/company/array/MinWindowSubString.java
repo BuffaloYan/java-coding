@@ -1,7 +1,7 @@
 package com.company.array;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -95,6 +95,6 @@ public class MinWindowSubString {
                 "ADOBECODEBANC",
                 "ABC");
 
-        Assert.assertEquals("BANC", ans);
+        assertEquals("BANC", ans);
     }
 }

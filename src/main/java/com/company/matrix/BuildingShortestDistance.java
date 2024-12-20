@@ -1,7 +1,7 @@
 package com.company.matrix;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -112,7 +112,7 @@ public class BuildingShortestDistance {
 
         int dist = shortestDistance.shortestDistance(grid);
 
-        Assert.assertEquals(88, dist);
+        assertEquals(88, dist);
 
         String version = "1.2.3";
 

@@ -1,7 +1,7 @@
 package com.company.sort;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 public class TrackNumber {
     public static class Node {
@@ -72,9 +72,9 @@ public class TrackNumber {
             trackNumber.track(d);
         }
 
-        Assert.assertEquals(4, trackNumber.findNumberLess(20));
-        Assert.assertEquals(2, trackNumber.findNumberLess(13));
-        Assert.assertEquals(6, trackNumber.findNumberLess(24));
+        assertEquals(4, trackNumber.findNumberLess(20));
+        assertEquals(2, trackNumber.findNumberLess(13));
+        assertEquals(6, trackNumber.findNumberLess(24));
 
     }
 }

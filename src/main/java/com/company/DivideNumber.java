@@ -1,7 +1,7 @@
 package com.company;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 import java.util.Random;
 
@@ -43,14 +43,14 @@ public class DivideNumber {
     public void testRun1() {
         DivideNumber divideNumber = new DivideNumber();
         int result = divideNumber.divide(7, -3);
-        Assert.assertEquals(-2, result);
+        assertEquals(-2, result);
     }
 
     @Test
     public void testRun2() {
         DivideNumber divideNumber = new DivideNumber();
         int result = divideNumber.divide(-2147483648, -1);
-        Assert.assertEquals(2147483647, result);
+        assertEquals(2147483647, result);
 
         int a = 10;
         boolean b = (a & 1) == 0;

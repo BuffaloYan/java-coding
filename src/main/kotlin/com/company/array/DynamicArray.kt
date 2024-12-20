@@ -35,3 +35,37 @@ class DynamicArray {
         }
     }
 }
+
+fun main() {
+    val n = 2
+    val queries = listOf(
+        listOf(1, 0, 5),
+        listOf(1, 1, 7),
+        listOf(1, 0, 3),
+        listOf(2, 1, 0),
+        listOf(2, 1, 1)
+    )
+
+    val result = DynamicArray.dynamicArray(n, queries)
+    println(result.joinToString("\n")) // Output: 7, 3
+
+    when {
+        result == listOf(7, 3) -> println("Test passed")
+        else -> println("Test failed")
+    }
+
+    when (result) {
+        listOf(7, 3) -> println("Test passed")
+        else -> println("Test failed")
+    }
+
+    case {
+        result == listOf(7, 3) -> println("Test passed")
+        else -> println("Test failed")
+    }
+
+    switch (result) {
+        case(listOf(7, 3)) { println("Test passed") }
+        else { println("Test failed") }
+    }
+}

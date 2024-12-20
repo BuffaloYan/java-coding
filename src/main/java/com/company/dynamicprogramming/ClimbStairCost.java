@@ -1,7 +1,7 @@
 package com.company.dynamicprogramming;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 public class ClimbStairCost {
     public int minCostClimbingStairs(int[] cost) {
@@ -63,6 +63,6 @@ public class ClimbStairCost {
         ClimbStairCost climbStairCost = new ClimbStairCost();
         int minCost = climbStairCost.minCostClimbingStairs(costs);
 
-        Assert.assertEquals(6, minCost);
+        assertEquals(6, minCost);
     }
 }

@@ -1,6 +1,6 @@
 package com.company.optimize;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class MaxBoxInTruck {
     public int maximumUnits(int[][] boxTypes, int truckSize) {

@@ -1,7 +1,7 @@
 package com.company.sort;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 import java.util.BitSet;
 
@@ -63,28 +63,28 @@ public class RotatedArray {
     public void testRunNoRotation() {
         int[] data = {1, 2, 3, 4};
         int index = binarySearch(data, 2);
-        Assert.assertEquals(1, index);
+        assertEquals(1, index);
     }
 
     @Test
     public void testRunLeftHalf() {
         int[] data = {5, 1, 2, 3, 4};
         int index = binarySearch(data, 1);
-        Assert.assertEquals(1, index);
+        assertEquals(1, index);
     }
 
     @Test
     public void testRunRightHalf() {
         int[] data = {5, 1, 2, 3, 4};
         int index = binarySearch(data, 3);
-        Assert.assertEquals(3, index);
+        assertEquals(3, index);
     }
 
     @Test
     public void testRunLessThanMin() {
         int[] data = {5, 1, 2, 3, 4};
         int index = binarySearch(data, 0);
-        Assert.assertEquals(-1, index);
+        assertEquals(-1, index);
     }
 
     @Test
@@ -92,6 +92,6 @@ public class RotatedArray {
         int[] data = {5, 1, 2, 3, 4};
         int index = binarySearch(data, 6);
         BitSet bs;
-        Assert.assertEquals(-1, index);
+        assertEquals(-1, index);
     }
 }

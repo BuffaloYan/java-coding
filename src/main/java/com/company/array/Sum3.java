@@ -1,7 +1,7 @@
 package com.company.array;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
 
@@ -59,7 +59,7 @@ public class Sum3 {
         int[] data = new int[]{-1,0,1,2,-1,-4};
         List<List<Integer>> result = sum3.threeSum(data);
 
-        Assert.assertEquals(2, result.size());
+        assertEquals(2, result.size());
     }
 
     @Test
@@ -70,7 +70,7 @@ public class Sum3 {
         int[] data = new int[]{0,0,0,0,0,0,0,0,0,0,0,0,0,0};
         List<List<Integer>> result = sum3.threeSum(data);
 
-        Assert.assertEquals(1, result.size());
+        assertEquals(1, result.size());
 
         String a = "";
         int level = (int) Math.ceil( Math.log(5));

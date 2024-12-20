@@ -1,7 +1,7 @@
 package com.company.graph;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
 
@@ -85,6 +85,6 @@ public class StringSwap {
         StringSwap swap = new StringSwap();
         String result = swap.smallestStringWithSwaps(s, pairs);
 
-        Assert.assertEquals("abcd", result);
+        assertEquals("abcd", result);
     }
 }

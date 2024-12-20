@@ -1,7 +1,7 @@
 package com.company.dynamicprogramming;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 import java.util.PriorityQueue;
 
@@ -91,7 +91,7 @@ public class JobSchedule {
         JobSchedule jobSchedule = new JobSchedule();
         int result = jobSchedule.minDifficulty(jobs, 2);
 
-        Assert.assertEquals(7, result);
+        assertEquals(7, result);
     }
 
     @Test
@@ -106,7 +106,7 @@ public class JobSchedule {
         JobSchedule jobSchedule = new JobSchedule();
         int result = jobSchedule.minDifficulty(jobs, 4);
 
-        Assert.assertEquals(-1, result);
+        assertEquals(-1, result);
     }
 
 
@@ -122,6 +122,6 @@ public class JobSchedule {
         JobSchedule jobSchedule = new JobSchedule();
         int result = jobSchedule.minDifficulty(jobs, 6);
 
-        Assert.assertEquals(843, result);
+        assertEquals(843, result);
     }
 }

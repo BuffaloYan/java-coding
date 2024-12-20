@@ -1,7 +1,7 @@
 package com.company.graph;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 
@@ -83,6 +83,6 @@ public class CheapestFlight2 {
         int result = flight.findCheapestPrice(n, data, source, destination, stops);
         System.out.println(System.currentTimeMillis());
         System.out.println(flight.count);
-        Assert.assertEquals(-1, result);
+        assertEquals(-1, result);
     }
 }

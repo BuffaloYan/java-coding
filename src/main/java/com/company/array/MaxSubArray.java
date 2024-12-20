@@ -1,7 +1,7 @@
 package com.company.array;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -54,6 +54,6 @@ public class MaxSubArray {
         MaxSubArray maxSubArray = new MaxSubArray();
         int result = maxSubArray.maxSubArray(data);
 
-        Assert.assertEquals(7, result);
+        assertEquals(7, result);
     }
 }

@@ -1,7 +1,7 @@
 package com.company.array;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 public class EvenDigits {
     public int findNumbers(int[] nums) {
@@ -31,7 +31,7 @@ public class EvenDigits {
         EvenDigits evenDigits = new EvenDigits();
         int result = evenDigits.findNumbers(nums);
 
-        Assert.assertEquals(2, result);
+        assertEquals(2, result);
     }
 
     @Test

@@ -1,6 +1,6 @@
 package com.company.list;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class Palindrome {
     public static class Node {

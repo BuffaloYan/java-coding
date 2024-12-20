@@ -1,6 +1,6 @@
 package com.company.array;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class StringMultiply {
     public String multiply(String num1, String num2) {

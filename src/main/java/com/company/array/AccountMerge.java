@@ -1,7 +1,7 @@
 package com.company.array;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
 
@@ -98,7 +98,8 @@ public class AccountMerge {
 
         List<List<String>> result = merge.accountsMerge(accounts);
 
-        Assert.assertEquals(3, result.size());
+        System.out.println(result);
+        assertEquals(3, result.size());
     }
 
     @Test
@@ -119,7 +120,7 @@ public class AccountMerge {
 
         List<List<String>> result = merge.accountsMerge(accounts);
 
-        Assert.assertEquals(1, result.size());
+        assertEquals(1, result.size());
     }
 
     @Test

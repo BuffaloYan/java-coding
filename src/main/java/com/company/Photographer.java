@@ -1,7 +1,7 @@
 package com.company;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 public class Photographer {
 
@@ -50,6 +50,6 @@ public class Photographer {
     public void testRun() {
         Photographer photographer = new Photographer();
         long result = photographer.getArtisticPhotographCount(5, "APABA", 1, 2);
-        Assert.assertEquals(1, result);
+        assertEquals(1, result);
     }
 }

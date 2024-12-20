@@ -1,7 +1,7 @@
 package com.company.array;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
 
@@ -73,6 +73,6 @@ public class TaskCoolDown {
         TaskCoolDown coolDown = new TaskCoolDown();
         int result = coolDown.leastInterval("AAABBB".toCharArray(), 2);
 
-        Assert.assertEquals(8, result);
+        assertEquals(8, result);
     }
 }

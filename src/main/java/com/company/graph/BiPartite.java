@@ -1,7 +1,7 @@
 package com.company.graph;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,6 +54,6 @@ public class BiPartite {
 
         BiPartite biPartite = new BiPartite();
         boolean result = biPartite.isBipartite(input);
-        Assert.assertEquals(true, result);
+        assertEquals(true, result);
     }
 }

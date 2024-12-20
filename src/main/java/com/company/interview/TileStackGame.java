@@ -1,7 +1,7 @@
 package com.company.interview;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
 
@@ -226,7 +226,7 @@ public class TileStackGame {
         TileStackGame tileStackGame = new TileStackGame();
         int winner = tileStackGame.findWinner(stacks);
 
-        Assert.assertEquals(0, winner);
+        assertEquals(0, winner);
     }
 
     @Test
@@ -243,7 +243,7 @@ public class TileStackGame {
         TileStackGame tileStackGame = new TileStackGame();
         int winner = tileStackGame.findWinner(stacks);
 
-        Assert.assertEquals(0, winner);
+        assertEquals(0, winner);
     }
 
     @Test
@@ -259,6 +259,6 @@ public class TileStackGame {
         TileStackGame tileStackGame = new TileStackGame();
         int winner = tileStackGame.findWinner(stacks);
 
-        Assert.assertEquals(0, winner);
+        assertEquals(0, winner);
     }
 }

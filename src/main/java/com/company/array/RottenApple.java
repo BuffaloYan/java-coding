@@ -1,7 +1,7 @@
 package com.company.array;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 import java.util.PriorityQueue;
 
@@ -109,6 +109,6 @@ public class RottenApple {
         int[] days = new int[]{3,2,1,4,2};
 
         int count = rottenApple.eatenApples(apples, days);
-        Assert.assertEquals(7, count);
+        assertEquals(7, count);
     }
 }

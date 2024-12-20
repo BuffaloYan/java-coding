@@ -1,7 +1,7 @@
 package com.company.dynamicprogramming;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
@@ -68,7 +68,7 @@ public class NumOfCoins {
         NumOfCoins numOfCoins = new NumOfCoins();
         int result = numOfCoins.coinChange(coins, 6249);
 
-        Assert.assertEquals(20, result);
+        assertEquals(20, result);
     }
 
     @Test
@@ -82,6 +82,6 @@ public class NumOfCoins {
         NumOfCoins numOfCoins = new NumOfCoins();
         int result = numOfCoins.coinChange(coins, 1100);
 
-        Assert.assertEquals(20, result);
+        assertEquals(20, result);
     }
 }

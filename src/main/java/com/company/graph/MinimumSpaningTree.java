@@ -1,7 +1,7 @@
 package com.company.graph;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -113,7 +113,7 @@ public class MinimumSpaningTree {
        MinimumSpaningTree spaningTree = new MinimumSpaningTree();
        int result = spaningTree.minCostConnectPoints(points);
 
-        Assert.assertEquals(20, result);
+        assertEquals(20, result);
 
     }
 }

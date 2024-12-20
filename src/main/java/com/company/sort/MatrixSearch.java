@@ -1,7 +1,7 @@
 package com.company.sort;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import org.junit.jupiter.api.Test;
 
 /**
  * search a number in a sorted matrix
@@ -95,7 +95,7 @@ public class MatrixSearch {
         };
 
         Location loc = search(matrix, 30);
-        Assert.assertNotNull(loc);
+        assertNotNull(loc);
         System.out.printf("find element at (%d, %d)\n", loc.row, loc.col);
     }
 }

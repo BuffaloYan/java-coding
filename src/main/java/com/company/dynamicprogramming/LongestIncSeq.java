@@ -1,9 +1,11 @@
 package com.company.dynamicprogramming;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
+import java.util.stream.Collectors;
+
 
 public class LongestIncSeq {
     public static class NumTrack {
@@ -52,7 +54,10 @@ public class LongestIncSeq {
 
         }
 
-        String str = String.join(", ", map.values().stream().map(n -> n.num+"").toList());
+        String str = String.join(", ",
+                map.values().stream()
+                        .map(n -> n.num+"")
+                        .collect(Collectors.toList()));
         System.out.printf("%d = %s\n", globalMaxLen, str);
 
         return globalMaxLen;
@@ -102,7 +107,7 @@ public class LongestIncSeq {
         LongestIncSeq longestIncSeq = new LongestIncSeq();
         int result = longestIncSeq.lengthOfLIS(data);
 
-        Assert.assertEquals(53, result);
+        assertEquals(53, result);
     }
 
     @Test
@@ -112,6 +117,6 @@ public class LongestIncSeq {
         LongestIncSeq longestIncSeq = new LongestIncSeq();
         int result = longestIncSeq.lengthOfLIS2(data);
 
-        Assert.assertEquals(53, result);
+        assertEquals(53, result);
     }
 }

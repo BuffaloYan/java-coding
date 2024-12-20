@@ -1,7 +1,7 @@
 package com.company.dynamicprogramming;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -124,7 +124,7 @@ public class BuySellStock4 {
         BuySellStock4 buySellStock4 = new BuySellStock4();
         int result = buySellStock4.maxProfit(2, prices);
 
-        Assert.assertEquals(6, result);
+        assertEquals(6, result);
     }
 
     @Test
@@ -133,7 +133,7 @@ public class BuySellStock4 {
         BuySellStock4 buySellStock4 = new BuySellStock4();
         int result = buySellStock4.maxProfit(2, prices);
 
-        Assert.assertEquals(13, result);
+        assertEquals(13, result);
     }
 
     @Test
@@ -142,7 +142,7 @@ public class BuySellStock4 {
         BuySellStock4 buySellStock4 = new BuySellStock4();
         int result = buySellStock4.maxProfit(2, prices);
 
-        Assert.assertEquals(11, result);
+        assertEquals(11, result);
     }
 
     @Test
@@ -151,7 +151,7 @@ public class BuySellStock4 {
         BuySellStock4 buySellStock4 = new BuySellStock4();
         int result = buySellStock4.maxProfit(2, prices);
 
-        Assert.assertEquals(12, result);
+        assertEquals(12, result);
     }
 
 }

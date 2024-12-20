@@ -1,6 +1,6 @@
 package com.company.matrix;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class SpiralMatrix {
     public int[][] generateMatrix(int n) {

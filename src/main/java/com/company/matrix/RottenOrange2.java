@@ -1,7 +1,7 @@
 package com.company.matrix;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -124,7 +124,7 @@ public class RottenOrange2 {
 
         int result = rottenOrange.orangesRotting(grid);
         System.out.println("result = " +result);
-        Assert.assertEquals(-1, result);
+        assertEquals(-1, result);
     }
 
     @Test
@@ -133,7 +133,7 @@ public class RottenOrange2 {
         int[][] grid = new int[][] {{2,1,1},{1,1,0},{0,1,1}};
         int result = rottenOrange.orangesRotting(grid);
         System.out.println("result = " +result);
-        Assert.assertEquals(4, result);
+        assertEquals(4, result);
 
         List<Integer> list = new LinkedList<>();
         Optional<Integer> found = list.stream().filter(n -> n>0).findAny();

@@ -1,7 +1,7 @@
 package com.company.graph;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
 
@@ -110,7 +110,7 @@ public class CheapestFlight {
         int result = flight.findCheapestPrice(n, data, source, destination, stops);
         System.out.println(System.currentTimeMillis());
         System.out.println(flight.count);
-        Assert.assertEquals(-1, result);
+        assertEquals(-1, result);
         List<long[]> list = new ArrayList<>();
         LinkedHashSet<Integer> set = new LinkedHashSet<>();
 

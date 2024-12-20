@@ -1,6 +1,6 @@
 package com.company.array;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class SortColor {
     public void sortColors(int[] nums) {

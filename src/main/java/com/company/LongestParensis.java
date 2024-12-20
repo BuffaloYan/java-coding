@@ -1,7 +1,7 @@
 package com.company;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 public class LongestParensis {
     public int longestValidParentheses(String s) {
@@ -57,6 +57,6 @@ public class LongestParensis {
         LongestParensis parensis = new LongestParensis();
         int ans = parensis.longestValidParentheses(s);
 
-        Assert.assertEquals(22, ans);
+        assertEquals(22, ans);
     }
 }

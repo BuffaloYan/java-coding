@@ -1,7 +1,8 @@
 package com.company.recursive;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class RegularExpression {
     public boolean isMatch(String s, String p) {
@@ -68,7 +69,7 @@ public class RegularExpression {
 
         RegularExpression regularExpression = new RegularExpression();
         boolean result = regularExpression.isMatch(s, p);
-        Assert.assertTrue(result);
+        assertTrue(result);
     }
 
     @Test
@@ -82,7 +83,7 @@ public class RegularExpression {
 
         RegularExpression regularExpression = new RegularExpression();
         boolean result = regularExpression.isMatch(s, p);
-        Assert.assertFalse(result);
+        assertFalse(result);
     }
 
     @Test
@@ -96,7 +97,7 @@ public class RegularExpression {
 
         RegularExpression regularExpression = new RegularExpression();
         boolean result = regularExpression.isMatch(s, p);
-        Assert.assertTrue(result);
+        assertTrue(result);
     }
 
 

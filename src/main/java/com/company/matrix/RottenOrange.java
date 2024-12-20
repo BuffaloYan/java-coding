@@ -1,7 +1,7 @@
 package com.company.matrix;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 public class RottenOrange {
     public int orangesRotting(int[][] grid) {
@@ -121,7 +121,7 @@ public class RottenOrange {
 
         int result = rottenOrange.orangesRotting(grid);
         System.out.println("result = " +result);
-        Assert.assertEquals(-1, result);
+        assertEquals(-1, result);
     }
 
     @Test
@@ -130,6 +130,6 @@ public class RottenOrange {
         int[][] grid = new int[][] {{2,1,1},{1,1,0},{0,1,1}};
         int result = rottenOrange.orangesRotting(grid);
         System.out.println("result = " +result);
-        Assert.assertEquals(4, result);
+        assertEquals(4, result);
     }
 }

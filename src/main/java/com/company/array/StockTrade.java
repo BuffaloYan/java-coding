@@ -1,7 +1,7 @@
 package com.company.array;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 public class StockTrade {
     public int maxProfit(int[] prices) {
@@ -62,7 +62,7 @@ public class StockTrade {
         StockTrade stockTrade = new StockTrade();
         int result = stockTrade.maxProfit(prices);
 
-        Assert.assertEquals(7, result);
+        assertEquals(7, result);
     }
 
     @Test
@@ -71,7 +71,7 @@ public class StockTrade {
         StockTrade stockTrade = new StockTrade();
         int result = stockTrade.maxProfit(prices);
 
-        Assert.assertEquals(4, result);
+        assertEquals(4, result);
     }
 
     @Test
@@ -80,7 +80,7 @@ public class StockTrade {
         StockTrade stockTrade = new StockTrade();
         int result = stockTrade.maxProfit(prices);
 
-        Assert.assertEquals(0, result);
+        assertEquals(0, result);
     }
 
     @Test
@@ -89,7 +89,7 @@ public class StockTrade {
         StockTrade stockTrade = new StockTrade();
         int result = stockTrade.maxProfit(prices);
 
-        Assert.assertEquals(7, result);
+        assertEquals(7, result);
 
     }
 

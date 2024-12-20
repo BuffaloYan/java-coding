@@ -1,78 +1,51 @@
 package com.company.array;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
+import java.util.HashSet;
 
-public class AccountMerge {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class AccountMerge2 {
     public List<List<String>> accountsMerge(List<List<String>> accounts) {
-        Map<Integer, Set<String>> mapAccountId = new HashMap<>();
-        // map accounts to account id
-        for (int i=0; i<accounts.size(); i++) {
-            Set<String> emailList = new TreeSet<>(accounts.get(i));
-            // remove name
-            emailList.remove(accounts.get(i).get(0));
-            mapAccountId.put(i, emailList);
-        }
+        Map<String, List<Set<String>>> accountEmails = new HashMap<>();
 
-        // email to account ids
-        Map<String, List<Integer>> mapEmail = new HashMap<>();
-        for(int i=0; i<accounts.size(); i++) {
-            for (String email: accounts.get(i)) {
-                if (email.indexOf("@") < 0) continue;
-                List<Integer> ids = mapEmail.get(email);
-                if (ids == null) {
-                    ids = new ArrayList<>();
-                    mapEmail.put(email, ids);
-                }
-
-                ids.add(i);
+        // parse accounts
+        for (List<String> account : accounts) {
+            String name = account.get(0);
+            List<String> emails = account.subList(1, account.size());
+            if (!accountEmails.containsKey(name)) {
+                accountEmails.put(name, new ArrayList<>());
             }
+            accountEmails.get(name).add(new HashSet<>(emails));
         }
 
-
-        // use disjoint set
-        int[] accountIds = new int[accounts.size()];
-        for (int i=0; i<accountIds.length; i++) {
-            accountIds[i] = i;
-        }
-
-        // union
-        for (String email: mapEmail.keySet()) {
-            List<Integer> ids = mapEmail.get(email);
-            if (ids.size() > 1) {
-                for (int i=1; i<ids.size(); i++) {
-                    int rootA = getRoot(accountIds, ids.get(i));
-                    int rootB = getRoot(accountIds, ids.get(0));
-                    if (rootA != rootB) {
-                        accountIds[rootA] = rootB;
+        // merge accounts, accounts that have common email will be merged
+        for (String key : accountEmails.keySet()) {
+            List<Set<String>> emails = accountEmails.get(key);
+            for (int i=0; i<emails.size(); i++) {
+                for (int j=i+1; j<emails.size(); j++) {
+                    Set<String> emailSet1 = emails.get(i);
+                    Set<String> emailSet2 = emails.get(j);
+                    if (emailSet1.stream().anyMatch(emailSet2::contains)) {
+                        emailSet1.addAll(emailSet2);
+                        emails.remove(j);
+                        j--;
                     }
-
                 }
             }
         }
 
-        // merge
-        for (int i=0; i<accountIds.length; i++) {
-            int root = getRoot(accountIds, i);
-            if (root != i) {
-                // merge account i into root
-                mapAccountId.get(root)
-                        .addAll(mapAccountId.get(i));
-                mapAccountId.get(i).clear();
-            }
-        }
-
-        // consolidate result
+        // convert to result
         List<List<String>> result = new ArrayList<>();
-        for (int i=0; i<accounts.size(); i++) {
-            if (mapAccountId.get(i).size() > 0) {
-                List<String> emails = new ArrayList<>();
-                // add name as first
-                emails.add(accounts.get(i).get(0));
-                emails.addAll(mapAccountId.get(i));
-                result.add(emails);
+        for (String key : accountEmails.keySet()) {
+            List<Set<String>> emails = accountEmails.get(key);
+            for (Set<String> emailSet : emails) {
+                List<String> emailList = new ArrayList<>();
+                emailList.add(key);
+                emailList.addAll(emailSet);
+                result.add(emailList);
             }
         }
 
@@ -87,7 +60,7 @@ public class AccountMerge {
 
     @Test
     public void testRun() {
-        AccountMerge merge = new AccountMerge();
+        AccountMerge2 merge = new AccountMerge2();
         List<List<String>> accounts = new ArrayList<>();
         // [["John","johnsmith@mail.com","john_newyork@mail.com"],["John","johnsmith@mail.com","john00@mail.com"],["Mary","mary@mail.com"],["John","johnnybravo@mail.com"]]
         // [["David","David0@m.co","David1@m.co"],["David","David3@m.co","David4@m.co"],["David","David4@m.co","David5@m.co"],["David","David2@m.co","David3@m.co"],["David","David1@m.co","David2@m.co"]]
@@ -99,12 +72,13 @@ public class AccountMerge {
         List<List<String>> result = merge.accountsMerge(accounts);
 
         System.out.println(result);
+        //[[John, john00@mail.com, john_newyork@mail.com, johnsmith@mail.com], [Mary, mary@mail.com], [John, johnnybravo@mail.com]]
         assertEquals(3, result.size());
     }
 
     @Test
     public void testRun2() {
-        AccountMerge merge = new AccountMerge();
+        AccountMerge2 merge = new AccountMerge2();
         List<List<String>> accounts = new ArrayList<>();
         // [["John","johnsmith@mail.com","john_newyork@mail.com"],["John","johnsmith@mail.com","john00@mail.com"],["Mary","mary@mail.com"],["John","johnnybravo@mail.com"]]
         // [["David","David0@m.co","David1@m.co"]
